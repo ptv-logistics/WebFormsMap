@@ -1,27 +1,33 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MapControl.ascx.cs" Inherits="WebFormsMap.MapControl" %>
-<div style="height:300px;" id="map"></div>
+<div style="height:100%;width:100%" id="<%=this.ID + "Map"%>"></div>
 <script>
     $(document).ready(function () {
-        var token = ''; // add your xServer internet token here
-        var cluster = 'eu-n-test';
+        var token = '<%=this.Token %>'; 
+        var cluster = '<%=this.Cluster %>';
 
         if (!token)
             alert('you need an xServer internet token for this sample!');
 
         // create a map in the "map" div, set the view to hamberug, street level
-        var map = L.map('map').setView([53.550556, 9.993333], 10);
+        var map = L.map('<%=this.ID + "Map" %>')
+            .setView([<%=this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>, <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%=this.Zoom%>);
 
         // initialize xServer internet base map
         getXMapBaseLayers(cluster, "sandbox", token).addTo(map);
 
+
+        <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
         // add the application data
-        $.get("./MapData.ashx?somerequestparameters=hello", function (data) {
+        $.get("./MapData.ashx?<%=this.DataRequest %>", function (data) {
             L.geoJson(data, {
+                <% if(!string.IsNullOrEmpty(this.PopupStyle)) { %>
                 onEachFeature: function (feature, layer) {
-                    layer.bindPopup('<h2>' + feature.id + '</h2><br>' + feature.description);
+                    layer.bindPopup(<%= this.PopupStyle %>);
                 }
+                <% } %>
             }).addTo(map);
         });
+        <% } %>
 
         // returns a layer group for xmap back- and foreground layers
         function getXMapBaseLayers(cluster, style, token) {
@@ -31,7 +37,7 @@
                 '/WMS/GetTile/xmap-ajaxbg-' + style + '/{x}/{y}/{z}.png', {
                     minZoom: 0,
                     maxZoom: 19,
-                    opacity: token ? 1.0 : 0.5,
+                    opacity: token ? 1.0 : 0.5, // only a pale bg, if no token
                     attribution: attribution,
                     subdomains: '1234',
                 });

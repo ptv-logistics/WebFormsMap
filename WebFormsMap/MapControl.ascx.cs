@@ -11,7 +11,38 @@ namespace WebFormsMap
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
+
+        /// <summary>
+        /// The xServer internet cluster name (e.g. eu-n-test)
+        /// </summary>
+        public string Cluster { get; set; }
+
+        /// <summary>
+        /// The xServer internet token
+        /// </summary>
+        public string Token { get; set; }
+
+        /// <summary>
+        /// The initial latitude value
+        /// </summary>
+        public double Latitude { get; set; }
+
+        /// <summary>
+        /// The initial longitude value
+        /// </summary>
+        public double Longitude { get; set; }
+
+        /// <summary>
+        /// The initial zoom level
+        /// </summary>
+        public int Zoom { get; set; }
+
+        /// <summary>
+        /// The request parameters for fetching the data
+        /// </summary>
+        public string DataRequest { get; set; }
+
+        public string PopupStyle { get; set; }
     }
 }

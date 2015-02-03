@@ -25,8 +25,14 @@
         <li class="one">
             <h5>Add a Map</h5>
             Because 80% of data in geographic ;)
-            <a href="http://xserver.ptvgroup.com/en-uk/cookbook/home/">Learn more…</a>
-            <uc1:MapControl runat="server" id="MapControl" />
+            <a href="https://github.com/ptv-logistics/WebFormsMap">Learn more…</a>
+            <asp:Panel ID="Panel1" Height="300" runat="server">
+                <uc1:MapControl runat="server" id="MapControl1" 
+                    Cluster="eu-n-test" Token=""
+                    Latitude="53.550556" Longitude="9.993333" Zoom="10"
+                    DataRequest="someRequestParams=foo&someOtherParams=goo" 
+                    PopupStyle="'<h2>' + feature.id + '</h2><br>' + feature.description" />
+            </asp:Panel>
         </li>
         <li class="two">
             <h5>Getting Started</h5>

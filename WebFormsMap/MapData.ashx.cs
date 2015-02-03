@@ -16,7 +16,8 @@ namespace WebFormsMap
         public void ProcessRequest(HttpContext context)
         {
             // you can apply some request parameters for filtering or styling
-            var somerequestparameters = context.Request.Params["somerequestparameters"];
+            var someRequestParams = context.Request.Params["someRequestParams"];
+            var someOtherParams = context.Request.Params["someOtherParams"];
 
             // the return type is json
             context.Response.ContentType = "application/json";
