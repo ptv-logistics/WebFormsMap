@@ -3,7 +3,7 @@ Patterns&amp;Practices for working with geographic data in a WebForms applicatio
 
 http://80.146.239.139/WebFormsMap/
 
-The sample shows how to visualize your geographic data in a (ASP.NET WebForms appliation)[http://www.asp.net/web-forms]. Starting with a newly created ASP.NET WebForms project, it demonstrates the steps that are required to add an interactive map and display your data on it.
+The sample shows how to visualize your geographic data in a [ASP.NET WebForms appliation](http://www.asp.net/web-forms). Starting with a newly created ASP.NET WebForms project, it demonstrates the steps that are required to add an interactive map and display your data on it.
 
 To use this code, you need
 
