@@ -16,7 +16,7 @@ To use this code, you need
 ### Add it to your application
 ...
 
-## Create a MapData.ashx Service
+### Create a MapData.ashx Service
 ...
 
 ### Display the data on the control
