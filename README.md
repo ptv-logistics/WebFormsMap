@@ -10,14 +10,14 @@ To use this code, you need
 * An xServer internet subscription. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
 * Microsoft Visual Studio or Visual Studio Express 2013 for Web http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 
-## Create a MapForm.ascx Contro.
+### Create a MapForm.ascx Contro.
 ...
 
-## Add it to your application
+### Add it to your application
 ...
 
 ## Create a MapData.ashx Service
 ...
 
-## Display the data on the control
+### Display the data on the control
 ...
