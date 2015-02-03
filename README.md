@@ -7,5 +7,5 @@ The sample shows how to visualize your geographic data in a ASP.NET WebForms app
 
 To use this code, you need
 
-* a PTV xMapServer installation or an xServer internet subscription. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
+* An xServer internet subscription. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
 * Microsoft Visual Studio or Visual Studio Express 2013 for Web http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
