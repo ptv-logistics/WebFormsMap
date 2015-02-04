@@ -1,5 +1,5 @@
 # WebFormsMap
-Patterns&amp;Practices for working with geographic data in a WebForms application
+Add a data-driven map to a WebForms application
 
 http://80.146.239.139/WebFormsMap/
 
