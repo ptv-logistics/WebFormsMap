@@ -24,7 +24,7 @@ namespace WebFormsMap
 
             // our database is simulated by a csv file, i'm using the Microsoft.VisualBasic.FileIO TextFileReader class
             var parser = new TextFieldParser(HttpRuntime.AppDomainAppPath + "\\App_Data\\Baufeldt.txt");
-            parser.Delimiters = new string[] {";"};
+            parser.Delimiters = new string[] { ";" };
 
             // we're just writing GeoJson brute-force, without any libraries (JSON.NET would be a good choice)
             context.Response.Write(@"{""type"": ""FeatureCollection"", ""features"": ["); // start json
@@ -43,9 +43,15 @@ namespace WebFormsMap
                 else
                     isFirstFeature = false;
 
+                // write coordinate
                 context.Response.Write(string.Format(CultureInfo.InvariantCulture,
-                               @"{{""geometry"": {{""type"": ""Point"",""coordinates"": [{2}, {3}]}},""type"": ""Feature"",""id"": ""{0}"",""description"": ""{1}"", ""properties"": []}}",
-                               parts[0], parts[1], parts[13], parts[14]));
+                    @"{{""type"": ""Feature"", ""geometry"": {{""type"": ""Point"",""coordinates"": [{0}, {1}]}}, ", 
+                    parts[13], parts[14]));
+
+                // write attributes
+                context.Response.Write(string.Format(CultureInfo.InvariantCulture,
+                    @"""properties"": {{""id"": ""{0}"", ""description"": ""{1}"", ""type"": ""{2}""}}}}",
+                    parts[0], parts[1], parts[6]));
             }
 
             context.Response.Write("]}"); // close json

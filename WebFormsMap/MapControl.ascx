@@ -18,16 +18,24 @@
 
         <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
             // add the application data
-            $.get("./MapData.ashx?<%=this.DataRequest %>", function (data) {
+            $.get('<%=this.DataRequest %>', function (data) {
                 var fg = L.geoJson(data, {
-                    <% if(!string.IsNullOrEmpty(this.PopupStyle)) { %>
-                    onEachFeature: function (feature, layer) {
-                        layer.bindPopup(<%= this.PopupStyle %>);
+                    <% if (!string.IsNullOrEmpty(this.PopupStyle) || !string.IsNullOrEmpty(this.MarkerStyle)) { %>
+                    pointToLayer: function (feature, latlng) {
+                        var color = <%= String.IsNullOrEmpty(this.MarkerStyle)? "'blue'" : this.MarkerStyle %>;
+                        var item =  L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
+                            icon: new L.Icon.Default({
+                                iconUrl: './Images/Markers/marker-' + color + '.png',
+                                iconRetinaUrl: '/Images/Markers/icons/marker-' + color + '-2x.png'
+                            })
+                        });
+                        item.bindPopup(<%= this.PopupStyle %>);
+                        return item;
                     }
                     <% } %>
                 }).addTo(map);
 
-                map.fitBounds(fg.getBounds());
+                map.fitBounds(fg.getBounds(), { maxZoom: 14 });
            });
         <% } %>
 

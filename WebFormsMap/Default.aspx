@@ -25,13 +25,14 @@
         <li class="one">
             <h5>Add a Map</h5>
             Because 80% of data in geographic ;)
-            <a href="https://github.com/ptv-logistics/WebFormsMap">Learn more…</a>
+            <a runat="server" href="~/About">Learn more…</a>
             <asp:Panel ID="Panel1" Height="300" runat="server">
                 <uc1:MapControl runat="server" id="MapControl1" 
                     Cluster="eu-n-test" Token=""
-                    Latitude="54.9" Longitude="25.316667" Zoom="4"
-                    DataRequest="someRequestParams=foo&someOtherParams=goo" 
-                    PopupStyle="'<h2>' + feature.id + '</h2><br>' + feature.description" />
+                    DataRequest="./MapData.ashx?someRequestParams=foo&someOtherParams=goo" 
+                    PopupStyle="'<h3>' + feature.properties.id + '</h3><br>' + feature.properties.type + '<br>' + feature.properties.description" 
+                    MarkerStyle="(feature.properties.type ==='VMG' || feature.properties.type ==='VMK')? 'red' : (feature.properties.type ==='SM') ? 'green' : 
+                     (feature.properties.type ==='DIS')? 'blue' : 'grey'" />
             </asp:Panel>
         </li>
         <li class="two">

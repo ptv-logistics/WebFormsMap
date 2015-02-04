@@ -3,35 +3,36 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h2>That's just the beginning...</h2>
     </hgroup>
 
     <article>
-        <h2>Blubber</h2>
+        The sample only shows the basic technique for embedding an interactive map into a WebForm application. You can find more
+        on GitHub.
         <ol class="round">
            <li class="one">
                  <h5>Add interaction</h5>
-                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
+                 Add more client-interaction with Leaflet + xServer internet.
                 <iframe src="http://ptv-logistics.github.io/PoiLocator/" style="height:300px;width:100%"></iframe>
             </li>
            <li class="two">
                  <h5>Themtic Mapping</h5>
-                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
+                Add more map types, for example choropleths.
                 <iframe src="http://80.146.239.139/VectorTest/ClientSideVector.html" style="height:300px;width:100%"></iframe>
             </li>
             <li class="three">
                  <h5>Advanced Rendering</h5>
-                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
+                To display complex data, you can put your rendering code on the server.
                 <iframe src="http://80.146.239.139/VectorTest/LeafletSpatial.html" style="height:300px;width:100%"></iframe>
             </li>
             <li class="four">
                  <h5>Additional Analysis with PTV xServer</h5>
-                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
+                With xRouteServer you can calculate isochrones and coverages.
                 <iframe src="http://80.146.239.139/CoverageDemo/" style="height:300px;width:100%"></iframe>
             </li>
             <li class="five">
                  <h5>Leaflet Addons</h5>
-                 ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
+                Leaflet offers many addons, for example 3D or clustering.
                 <iframe src="http://80.146.239.139/vectortest/clientsidevector3d.html" style="height:300px;width:100%"></iframe>
             </li>
         </ol>

@@ -44,5 +44,7 @@ namespace WebFormsMap
         public string DataRequest { get; set; }
 
         public string PopupStyle { get; set; }
+
+        public string MarkerStyle { get; set; }
     }
 }

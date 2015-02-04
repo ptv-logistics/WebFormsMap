@@ -179,6 +179,15 @@
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\Markers\marker-green-2x.png" />
+    <Content Include="Images\Markers\marker-green.png" />
+    <Content Include="Images\Markers\marker-grey-2x.png" />
+    <Content Include="Images\Markers\marker-grey.png" />
+    <Content Include="Images\Markers\marker-blue-2x.png" />
+    <Content Include="Images\Markers\marker-blue.png" />
+    <Content Include="Images\Markers\marker-red-2x.png" />
+    <Content Include="Images\Markers\marker-red.png" />
+    <Content Include="Images\Markers\marker-shadow.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
     <Content Include="Images\orderedList2.png" />
