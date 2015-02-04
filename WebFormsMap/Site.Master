@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" /> <!-- for leaflet -->
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <asp:PlaceHolder runat="server">        
         <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
@@ -16,19 +16,19 @@
 </head>
 <body>
     <form runat="server">
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>    <!-- for leaflet -->
-    <script src="./Scripts/NonTiledLayer.js"></script>        <!-- for leaflet -->
-    <script src="./Scripts/NonTiledLayer.WMS.js"></script>       <!-- for leaflet -->
     <asp:ScriptManager runat="server">
         <Scripts>
             <asp:ScriptReference Name="jquery" />
             <asp:ScriptReference Name="jquery.ui.combined" />
-        </Scripts>
+            <asp:ScriptReference Path="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" /> 
+            <asp:ScriptReference Path="~/Scripts/NonTiledLayer.js" /> 
+            <asp:ScriptReference Path="~/Scripts/NonTiledLayer.WMS.js" /> 
+         </Scripts>
     </asp:ScriptManager>
     <header>
         <div class="content-wrapper">
             <div class="float-left">
-                <p class="site-title"><a runat="server" href="~/">your logo here</a></p>
+                <p class="site-title"><a runat="server" href="~/">WebFormsMap</a></p>
             </div>
             <div class="float-right">
                 <section id="login">
