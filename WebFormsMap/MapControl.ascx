@@ -9,24 +9,26 @@
             alert('you need an xServer internet token for this sample!');
 
         // create a map in the "map" div, set the view to hamberug, street level
-        var map = L.map('<%=this.ID + "Map" %>')
-            .setView([<%=this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>, <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%=this.Zoom%>);
+        var map = L.map('<%=this.ID + "Map" %>').setView(
+            [<%=this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>, 
+                <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%= this.Zoom %> );
 
         // initialize xServer internet base map
         getXMapBaseLayers(cluster, "sandbox", token).addTo(map);
 
-
         <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
-        // add the application data
-        $.get("./MapData.ashx?<%=this.DataRequest %>", function (data) {
-            L.geoJson(data, {
-                <% if(!string.IsNullOrEmpty(this.PopupStyle)) { %>
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup(<%= this.PopupStyle %>);
-                }
-                <% } %>
-            }).addTo(map);
-        });
+            // add the application data
+            $.get("./MapData.ashx?<%=this.DataRequest %>", function (data) {
+                var fg = L.geoJson(data, {
+                    <% if(!string.IsNullOrEmpty(this.PopupStyle)) { %>
+                    onEachFeature: function (feature, layer) {
+                        layer.bindPopup(<%= this.PopupStyle %>);
+                    }
+                    <% } %>
+                }).addTo(map);
+
+                map.fitBounds(fg.getBounds());
+           });
         <% } %>
 
         // returns a layer group for xmap back- and foreground layers

@@ -29,7 +29,7 @@
             <asp:Panel ID="Panel1" Height="300" runat="server">
                 <uc1:MapControl runat="server" id="MapControl1" 
                     Cluster="eu-n-test" Token=""
-                    Latitude="53.550556" Longitude="9.993333" Zoom="10"
+                    Latitude="54.9" Longitude="25.316667" Zoom="4"
                     DataRequest="someRequestParams=foo&someOtherParams=goo" 
                     PopupStyle="'<h2>' + feature.id + '</h2><br>' + feature.description" />
             </asp:Panel>

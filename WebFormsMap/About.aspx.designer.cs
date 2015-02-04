@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebFormsMap
-{
-
-    public partial class About
-    {
-
+namespace WebFormsMap {
+    
+    
+    public partial class About {
     }
 }
