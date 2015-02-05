@@ -13,9 +13,9 @@ To run this code, you need
 ### 01 - Create the solution and prepare it for Leaflet
 
 * In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
-* Add a link to the Leaflet style sheet in  Site.Master. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
-* Add a link to the Leaflet JavaScript source in Site.Master. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23)
-* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25)
+* Add a link to the Leaflet style sheet in  Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9).
+* Add a link to the Leaflet JavaScript source in Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23).
+* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25)
 
 ### 02 - Create a MapControl and add it to a Page
 * In Visual Studio we create a new item of type "Web Forms User Control" and name it MapControl
