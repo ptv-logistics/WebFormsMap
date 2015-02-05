@@ -19,7 +19,7 @@ To run this code, you need
 
 ### 02 - Create a MapControl and add it to a Page
 * In Visual Studio we create a new item of type "Web Forms User Control" and name it MapControl
-* The [Markup Code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx) contains the initialization of Leaflet with some properties, that are provided by the [Code Behind](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx.cs).
+* The [Markup Code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx) contains the initialization of Leaflet with some properties that are provided by the [Code Behind](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx.cs).
 * The control itself has no size parameters. To place it in our page, we first drop a Panel from to toolbox on the page in the designer, set a size, and then drop the map control on the panel. To initialize the control, we have to set the cluster name and our token [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L29-31#L33).
 
 ### 03 - Provide the Control with Data and display it on the Map
@@ -32,6 +32,6 @@ To run this code, you need
 
 * We want to display different balloon icons, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
 * Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35).
-* In the control part, these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
+* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
 
 After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/).
