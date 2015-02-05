@@ -8,7 +8,7 @@
         if (!token)
             alert('you need an xServer internet token for this sample!');
 
-        // create a map in the "map" div, set the view to hamberug, street level
+        // create a map in the "map" div and set the viewport
         var map = L.map('<%=this.ID + "Map" %>').setView(
             [<%=this.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>, 
                 <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%= this.Zoom %> );
