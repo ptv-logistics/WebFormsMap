@@ -24,13 +24,13 @@ To run this code, you need
 
 ### 03 - Provide the Control with Data and display it on the Map
 * To simulate our database, we just use a plain [CSV file](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/App_Data/Baufeldt.txt) that contains some retail stores with geographic coordinates. 
-* We want to provide this data as [GeoJson](http://geojson.org/), ecause Leaflet can display this data out-of-the box. So we create a new item of type "Generic Handler" in Visual Studio. The [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapData.ashx.cs) reads our "database" and converts the data to GeoJson. 
+* We want to provide this data as [GeoJson](http://geojson.org/), because Leaflet can display this data out-of-the box. So we create a new item of type "Generic Handler" in Visual Studio. The [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapData.ashx.cs) reads our "database" and converts the data to GeoJson. 
 * We can also provide some request parameters, so we can fetch our data with a HTTP get http://80.146.239.139/WebFormsMap/MapData.ashx?someRequestParams=foo
 * Our MapControl has a property DataRequest that can be used to [initialize the map with a data url](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L32). The [implementation](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L19-22) fetches the data via jQuery and initializes a new layer with the response.
 
 ### 04 - Style the Data
 
-* We want to display different balloon, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
+* We want to display different balloon icons, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
 * Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35)
 * In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
 
