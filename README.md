@@ -12,6 +12,6 @@ To run this code, you need
 
 ### 01 - Create the solution and prepare for Leaflet
 
-* Add a link to the Leaflet style sheet [code}(https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
+* Add a link to the Leaflet style sheet [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
 * Add a link to the Leaflet JavaScript https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23
-
+* Add the two files https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25
