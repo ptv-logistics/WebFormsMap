@@ -10,7 +10,7 @@ To run this code, you need
 * Microsoft Visual Studio or Visual Studio Express 2013 for Web http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 * An xServer internet token. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
 
-### 01 - Create the solution and prepare it for Leaflet
+### 01 - Create the Solution and prepare it for Leaflet
 
 * In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
 * Add a link to the Leaflet style sheet in  Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9).
