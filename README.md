@@ -12,6 +12,7 @@ To run this code, you need
 
 ### 01 - Create the solution and prepare for Leaflet
 
-* Add a link to the Leaflet style sheet [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
-* Add a link to the Leaflet JavaScript https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23
-* Add the two files https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25
+* In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
+* Add a link to the Leaflet style sheet in  Site.Master [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
+* Add a link to the Leaflet JavaScript source in  Site.Master [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23)
+* PTV xMapServer requires an addon for single-tile images. This is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link it to the Site.Master file [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25)
