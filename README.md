@@ -10,14 +10,7 @@ To run this code, you need
 * Microsoft Visual Studio or Visual Studio Express 2013 for Web http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 * An xServer internet token. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
 
-### Create a MapControl.ascx
-...
+### 01 - Prepare for Leaflet
 
-### Add it to your Page
-...
-
-### Create a MapData.ashx Service
-...
-
-### Display the Data on the Control
-...
+Add a link to the Leaflet style sheet
+https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9
