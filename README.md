@@ -10,7 +10,7 @@ To run this code, you need
 * Microsoft Visual Studio or Visual Studio Express 2013 for Web http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
 * An xServer internet token. Go to http://xserver.ptvgroup.com/en-uk/products/ptv-xserver-internet/test/ to get a trial token.
 
-### 01 - Create the solution and prepare for Leaflet
+### 01 - Create the solution and prepare it for Leaflet
 
 * In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
 * Add a link to the Leaflet style sheet in  Site.Master. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9)
@@ -23,5 +23,6 @@ To run this code, you need
 * The control itself has no size parameters. To place it in our page, we first drop a Panel from to toolbox on the page in the designer, set a size, and then drop the map control on the panel. To initialize the control, we have to set the cluster name and our token. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L29-31#L33)
 
 ### 03 - Provide the Control with Data and display it on the Map
+* To simulate our database, we just use a plain [CSV file](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/App_Data/Baufeldt.txt) that contains some retail stores. 
 
 ### 04 - Style the Data
