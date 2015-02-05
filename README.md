@@ -15,12 +15,12 @@ To run this code, you need
 * In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
 * Add a link to the Leaflet style sheet in  Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9).
 * Add a link to the Leaflet JavaScript source in Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23).
-* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25)
+* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25).
 
 ### 02 - Create a MapControl and add it to a Page
 * In Visual Studio we create a new item of type "Web Forms User Control" and name it MapControl
 * The [Markup Code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx) contains the initialization of Leaflet with some properties, that are provided by the [Code Behind](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx.cs).
-* The control itself has no size parameters. To place it in our page, we first drop a Panel from to toolbox on the page in the designer, set a size, and then drop the map control on the panel. To initialize the control, we have to set the cluster name and our token. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L29-31#L33)
+* The control itself has no size parameters. To place it in our page, we first drop a Panel from to toolbox on the page in the designer, set a size, and then drop the map control on the panel. To initialize the control, we have to set the cluster name and our token [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L29-31#L33).
 
 ### 03 - Provide the Control with Data and display it on the Map
 * To simulate our database, we just use a plain [CSV file](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/App_Data/Baufeldt.txt) that contains some retail stores with geographic coordinates. 
@@ -31,7 +31,7 @@ To run this code, you need
 ### 04 - Style the Data
 
 * We want to display different balloon icons, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
-* Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color. [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35)
+* Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35).
 * In the control part, these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
 
 After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/).
