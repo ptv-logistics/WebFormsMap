@@ -31,4 +31,6 @@ To run this code, you need
 ### 04 - Style the Data
 
 * We want to display different balloon, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
+* Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color.
+* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35).
 * https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L23-34
