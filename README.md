@@ -34,4 +34,4 @@ To run this code, you need
 * Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35).
 * In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
 
-After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/).
+After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/). On the about page i've [added some other samples](http://80.146.239.139/WebFormsMap/About).  While these are just included as frame, use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
