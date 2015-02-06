@@ -26,7 +26,7 @@
                         var item =  L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
                             icon: new L.Icon.Default({
                                 iconUrl: './Images/Markers/marker-' + color + '.png',
-                                iconRetinaUrl: '/Images/Markers/icons/marker-' + color + '-2x.png'
+                                iconRetinaUrl: './Images/Markers/icons/marker-' + color + '-2x.png'
                             })
                         });
                         item.bindPopup(<%= this.PopupStyle %>);
