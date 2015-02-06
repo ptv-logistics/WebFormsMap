@@ -14,7 +14,7 @@
                 <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%= this.Zoom %> );
 
         // initialize xServer internet base map
-        getXMapBaseLayers(cluster, "sandbox", token).addTo(map);
+        getBaseLayers(cluster, "sandbox", token).addTo(map);
 
         <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
             // add the application data
@@ -40,7 +40,7 @@
         <% } %>
 
         // returns a layer group for xmap back- and foreground layers
-        function getXMapBaseLayers(cluster, style, token) {
+        function getBaseLayers(cluster, style, token) {
             var attribution = '<a href="http://www.ptvgroup.com">PTV</a>, TOMTOM';
 
             var background = L.tileLayer('https://ajaxbg{s}-' + cluster + '.cloud.ptvgroup.com' +
