@@ -14,7 +14,7 @@
                 <%=this.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture)%>], <%= this.Zoom %> );
 
         // initialize xServer internet base map
-        getBaseLayers(cluster, "sandbox", token).addTo(map);
+        getXMapBaseLayers(cluster, "sandbox", token).addTo(map);
 
         <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
             // add the application data
@@ -40,26 +40,35 @@
         <% } %>
 
         // returns a layer group for xmap back- and foreground layers
-        function getBaseLayers(cluster, style, token) {
-            var attribution = '<a href="http://www.ptvgroup.com">PTV</a>, TOMTOM';
+        function getXMapBaseLayers(baseUrl, style, xparam) {
+            var isXSI = !(baseUrl.indexOf('http://') == 0 || baseUrl.indexOf('https://') == 0); // is xServer internet
+            var isGC = isXSI && (baseUrl.indexOf('cn-n') > -1 || baseUrl.indexOf('jp-n') > -1); // is global coverage server
+	
+            var dataProviderString = isXSI? (isGC? "deCarta" : (baseUrl.indexOf('eu-n') > -1)? "TOMTOM" : "HERE") : xparam;			
+            var tokenString = isXSI? '?xtok=' + token : '';
+		
+            var attribution = '<a href="http://www.ptvgroup.com">PTV</a>, ' + dataProviderString;
+	
+            var bgUrl = (isXSI? 'https://ajaxbg{s}-' + baseUrl + '.cloud.ptvgroup.com' : baseUrl) + '/WMS/GetTile';	
+            var bgStyle = ((style && !isGC) ? 'xmap-' + style + '-bg' : 'xmap-ajaxbg');
+            var background = L.tileLayer( bgUrl + '/' + bgStyle + 
+                             '/{x}/{y}/{z}.png' + ((isGC)?  '?xtok=' + token : ''), {
+                                 minZoom: 0, maxZoom: 19, opacity: 1.0,
+                                 attribution: attribution,
+                                 subdomains: '1234'
+                             });
 
-            var background = L.tileLayer('https://ajaxbg{s}-' + cluster + '.cloud.ptvgroup.com' +
-                '/WMS/GetTile/xmap-ajaxbg-' + style + '/{x}/{y}/{z}.png', {
-                    minZoom: 0,
-                    maxZoom: 19,
-                    opacity: token ? 1.0 : 0.5, // only a pale bg, if no token
-                    attribution: attribution,
-                    subdomains: '1234',
-                });
-
-            if (!token) // only render background layer, if no token
+            if(isGC)
                 return background;
-
-            var foreground = new L.NonTiledLayer.WMS('https://ajaxfg-' + cluster + '.cloud.ptvgroup.com/WMS/WMS' + '?xtok=' + token, {
+		
+            var fgUrl = (isXSI? 'https://ajaxfg-' + baseUrl + '.cloud.ptvgroup.com' : baseUrl) + '/WMS/WMS';
+            var fgStyle = ((style && !isGC) ? 'xmap-' + style + '-fg' : 'xmap-ajaxfg');
+            var foreground = new L.NonTiledLayer.WMS(fgUrl + tokenString, {
                 minZoom: 0, maxZoom: 19, opacity: 1.0,
-                layers: style ? 'xmap-ajaxfg-' + style : 'xmap-ajaxfg',
+                layers: fgStyle,
                 format: 'image/png', transparent: true,
-                attribution: attribution
+                attribution: attribution,
+                pane: map._panes.labelPane
             });
 
             return L.layerGroup([background, foreground]);

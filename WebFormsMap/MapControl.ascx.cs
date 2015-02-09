@@ -43,8 +43,14 @@ namespace WebFormsMap
         /// </summary>
         public string DataRequest { get; set; }
 
+        /// <summary>
+        /// The string builder for the popup style
+        /// </summary>
         public string PopupStyle { get; set; }
 
+        /// <summary>
+        /// The javascript code for returning the marker style
+        /// </summary>
         public string MarkerStyle { get; set; }
     }
 }
