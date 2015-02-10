@@ -24,7 +24,7 @@
     <ol class="round">
         <li class="one">
             <h5>Add a Map</h5>
-            Because 80% of data in geographic ;)
+            Because 80% of data is geographic ;)
             <a runat="server" href="~/About">Learn more…</a>
             <asp:Panel ID="Panel1" Height="300" runat="server">
                 <uc1:MapControl runat="server" id="MapControl1" 
