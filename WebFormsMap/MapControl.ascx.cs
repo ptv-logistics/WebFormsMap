@@ -37,20 +37,5 @@ namespace WebFormsMap
         /// The initial zoom level
         /// </summary>
         public int Zoom { get; set; }
-
-        /// <summary>
-        /// The request parameters for fetching the data
-        /// </summary>
-        public string DataRequest { get; set; }
-
-        /// <summary>
-        /// The string builder for the popup style
-        /// </summary>
-        public string PopupStyle { get; set; }
-
-        /// <summary>
-        /// The javascript code for returning the marker style
-        /// </summary>
-        public string MarkerStyle { get; set; }
     }
 }

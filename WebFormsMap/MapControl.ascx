@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MapControl.ascx.cs" Inherits="WebFormsMap.MapControl" %>
-<div style="height:100%;width:100%" id="<%=this.ID + "Map"%>"></div>
+<div style="height: 100%; width: 100%" id="<%=this.ID + "Map"%>"></div>
 <script>
     $(document).ready(function () {
         var token = '<%=this.Token %>'; 
@@ -16,28 +16,43 @@
         // initialize xServer internet base map
         getXMapBaseLayers(cluster, "sandbox", token).addTo(map);
 
-        <% if(!string.IsNullOrEmpty(this.DataRequest)) { %>
-            // add the application data
-            $.get('<%=this.DataRequest %>', function (data) {
-                var fg = L.geoJson(data, {
-                    <% if (!string.IsNullOrEmpty(this.PopupStyle) || !string.IsNullOrEmpty(this.MarkerStyle)) { %>
-                    pointToLayer: function (feature, latlng) {
-                        var color = <%= String.IsNullOrEmpty(this.MarkerStyle)? "'blue'" : this.MarkerStyle %>;
-                        var item =  L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
-                            icon: new L.Icon.Default({
-                                iconUrl: './Images/Markers/marker-' + color + '.png',
-                                iconRetinaUrl: './Images/Markers/icons/marker-' + color + '-2x.png'
-                            })
-                        });
-                        item.bindPopup(<%= this.PopupStyle %>);
-                        return item;
-                    }
-                    <% } %>
-                }).addTo(map);
+        var markerMap = {};
 
-                map.fitBounds(fg.getBounds(), { maxZoom: 14 });
-           });
-        <% } %>
+        // add the application data
+        $.get('./MapData.ashx?someRequestParams=foo&someOtherParams=goo', function (data) {
+            var fg = L.geoJson(data, {
+                pointToLayer: function (feature, latlng) {
+                    var color = (feature.properties.type === 'VMG' || feature.properties.type === 'VMK') ? 'red' : 
+                        (feature.properties.type === 'SM') ? 'green' : (feature.properties.type === 'DIS') ? 'blue' : 'grey';
+                    var item =  L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
+                        icon: new L.Icon.Default({
+                            iconUrl: './Images/Markers/marker-' + color + '.png',
+                            iconRetinaUrl: './Images/Markers/icons/marker-' + color + '-2x.png'
+                        })
+                    });
+                    
+                    // bind a popup with information and a link to delete
+                    item.bindPopup('<h3>' + feature.properties.id + '</h3><br>' + feature.properties.type + '<br>' + feature.properties.description + '<br>' + 
+                        '<a href="#" id="location' + feature.properties.id + '" class="delete">Delete</a>');
+
+                    markerMap[feature.properties.id] = item;
+                    return item;
+                }
+            }).addTo(map);
+
+            map.fitBounds(fg.getBounds(), { maxZoom: 14 });
+        });
+        
+        // The HTML we put in bindPopup doesn't exist yet, so we can't just say
+        // $('#mybutton'). Instead, we listen for click events on the map element which
+        // will bubble up from the tooltip, once it's created and someone clicks on it.
+        $('#<%=this.ID + "Map" %>').on('click', '.delete', function(ev) {
+            var id = ev.target.id.substr("location".length);
+            $.post('./MapAction.ashx?action=delete&id=' + id, "", function() {
+                // serer-side deletion succeeded
+                map.removeLayer(markerMap[id]);
+            });
+        });
 
         // returns a layer group for xmap back- and foreground layers
         function getXMapBaseLayers(baseUrl, style, xparam) {

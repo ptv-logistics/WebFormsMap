@@ -28,11 +28,7 @@
             <a runat="server" href="~/About">Learn more…</a>
             <asp:Panel ID="Panel1" Height="300" runat="server">
                 <uc1:MapControl runat="server" id="MapControl1" 
-                    Cluster="eu-n-test" Token=""
-                    DataRequest="./MapData.ashx?someRequestParams=foo&someOtherParams=goo" 
-                    PopupStyle="'<h3>' + feature.properties.id + '</h3><br>' + feature.properties.type + '<br>' + feature.properties.description" 
-                    MarkerStyle="(feature.properties.type ==='VMG' || feature.properties.type ==='VMK')? 'red' : (feature.properties.type ==='SM') ? 'green' : 
-                     (feature.properties.type ==='DIS')? 'blue' : 'grey'" />
+                    Cluster="eu-n-test" Token="" />
                 <%-- Note: for on-prem xMap use someting like Cluster="http://80.146.239.180" Token="TOMTOM" --%>
             </asp:Panel>
         </li>

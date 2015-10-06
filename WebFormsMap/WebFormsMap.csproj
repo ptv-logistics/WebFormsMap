@@ -204,6 +204,7 @@
     <Content Include="MapControl.ascx" />
     <Content Include="packages.config" />
     <Content Include="MapData.ashx" />
+    <Content Include="MapAction.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -286,6 +287,9 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MapAction.ashx.cs">
+      <DependentUpon>MapAction.ashx</DependentUpon>
     </Compile>
     <Compile Include="MapControl.ascx.cs">
       <DependentUpon>MapControl.ascx</DependentUpon>
