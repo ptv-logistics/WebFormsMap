@@ -36,7 +36,7 @@ To run this code, you need
 ### 05 - Add interaction
 
 * We want to provide a delete function for a pushpin that calls a function on our ASP-Site to delete a location.
-* We Just implement a new [dummy-handler](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapAction.ashx.cs) which is called from the map. And would delete a location from our database.
-* 
+* We just implement a new [dummy-handler](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapAction.ashx.cs) which is called from the map and would delete a location from our database.
+* For the leaflet popup we add a [link button](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L34-36) and a [callback with jQuery](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L49-55) that calls our ASP-method and deletes the client-side icon if succeeded.
 
 After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/). On the about page i've added [some other samples](http://80.146.239.139/WebFormsMap/About).  While these are just included as iframe, they use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
