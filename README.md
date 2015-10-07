@@ -15,7 +15,7 @@ To run this code, you need
 * In Visual Studio create a new Solution of type "ASP.NET Web Forms Application"
 * Add a link to the Leaflet style sheet in  Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L9).
 * Add a link to the Leaflet JavaScript source in Site.Master [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L23).
-* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-25).
+* PTV xMapServer requires an addon for single-tile map images. The code is provided by [this GitHub project](https://github.com/ptv-logistics/Leaflet.NonTiledLayer). Add the two files NonTiledLayer.js and NonTiledLayer.WMS.js to the Scripts folder of the project and link to them in the Site.Master file [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Site.Master#L24-L25).
 
 ### 02 - Create a MapControl and add it to a Page
 * In Visual Studio we create a new item of type "Web Forms User Control" and name it MapControl
@@ -31,12 +31,12 @@ To run this code, you need
 ### 04 - Style the Data
 
 * We want to display different balloon icons, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
-* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-40).
+* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-L40).
 
 ### 05 - Add interaction
 
 * We want to provide a delete function for a pushpin that calls a function on our ASP-Site to delete a location.
 * We just implement a new [dummy-handler](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapAction.ashx.cs) which is called from the map and would delete a location from our database.
-* For the leaflet popup we add a [link button](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L34-36) and a [callback with jQuery](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L49-55) that calls our ASP-method and deletes the client-side icon if succeeded.
+* For the leaflet popup we add a [link button](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L34-L36) and a [callback with jQuery](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L49-L55) that calls our ASP-method and deletes the client-side icon if succeeded.
 
 After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/). On the about page i've added [some other samples](http://80.146.239.139/WebFormsMap/About).  While these are just included as iframe, they use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
