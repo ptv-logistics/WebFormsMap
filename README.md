@@ -31,7 +31,12 @@ To run this code, you need
 ### 04 - Style the Data
 
 * We want to display different balloon icons, depending on the type property of the GeoJson data. For this purpose we add [new Leaflet icons](https://github.com/ptv-logistics/WebFormsMap/tree/master/WebFormsMap/Images/Markers) to our web project.
-* Our control has two properties: PopupStyle and MarkerStyle. PopupStyle contains the string builder for the marker tooltip, and MarkerStyle the js code to return the color [here](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/Default.aspx#L33-35).
-* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-34).
+* In the control part these properties are used to create dynamic pushpins with the Leaflet [pointToLayer function](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L24-40).
+
+### 05 - Add interaction
+
+* We want to provide a delete function for a pushpin that calls a function on our ASP-Site to delete a location.
+* We Just implement a new [dummy-handler](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapAction.ashx.cs) which is called from the map. And would delete a location from our database.
+* 
 
 After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/). On the about page i've added [some other samples](http://80.146.239.139/WebFormsMap/About).  While these are just included as iframe, they use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
