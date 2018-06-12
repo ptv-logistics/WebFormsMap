@@ -1,7 +1,7 @@
 # WebFormsMap
 Add a data-driven map to a WebForms application
 
-[Demo](http://80.146.239.139/WebFormsMap/)
+[Demo](http://176.95.37.29/WebFormsMap/)
 
 The sample shows how to visualize your geographic data in a [ASP.NET WebForms application](http://www.asp.net/web-forms). Starting with a newly created ASP.NET WebForms project, it demonstrates the steps that are required to add an interactive map and display your data on it.
 
