@@ -25,7 +25,7 @@ To run this code you need
 ### 03 - Supply the Control with Data and display it on the Map
 * To simulate our database, we just use a plain [CSV file](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/App_Data/Baufeldt.txt) that contains some retail stores with geographic coordinates. 
 * We want to provide this data as [GeoJson](http://geojson.org/), because Leaflet can display this data out-of-the box. So we create a new item of type "Generic Handler" in Visual Studio. The [code](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapData.ashx.cs) reads our "database" and converts the data to GeoJson. 
-* We can also provide some request parameters, so we can fetch our data with a HTTP get http://80.146.239.139/WebFormsMap/MapData.ashx?someRequestParams=foo
+* We can also provide some request parameters, so we can fetch our data with a HTTP get http://176.95.37.29/WebFormsMap/MapData.ashx?someRequestParams=foo
 * The [data initialization](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L22) fetches the data via jQuery and initializes a new layer with the response.
 
 ### 04 - Style the Data
@@ -39,4 +39,4 @@ To run this code you need
 * We just implement a new [dummy-handler](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapAction.ashx.cs) which is called from the map and would delete a location from our database.
 * For the leaflet popup we add a [link button](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L34-L36) and a [callback with jQuery](https://github.com/ptv-logistics/WebFormsMap/blob/master/WebFormsMap/MapControl.ascx#L49-L55) that calls our ASP-method and deletes the client-side icon if succeeded.
 
-After these steps we see [colored and clickable pushpins in a map](http://80.146.239.139/WebFormsMap/). On the about page i've added [some other samples](http://80.146.239.139/WebFormsMap/About).  While these are just included as iframe, they use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
+After these steps we see [colored and clickable pushpins in a map](http://176.95.37.29/WebFormsMap/). On the about page i've added [some other samples](http://176.95.37.29/WebFormsMap/About).  While these are just included as iframe, they use the same components: Leaflet, some with ASP.NET as data service. You could add these in WebForms with this technique.
